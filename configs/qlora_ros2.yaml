@@ -1,0 +1,24 @@
+# QLoRA fine-tuning configuration — Phase 2
+model_name: meta-llama/Meta-Llama-3-8B-Instruct
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+training:
+  max_seq_len: 1024
+  micro_batch_size: 2
+  grad_accum_steps: 8      # effective batch size 16
+  epochs: 3
+  lr: 2.0e-4
+  weight_decay: 0.01
+  warmup_ratio: 0.03
+  max_grad_norm: 1.0
+  seed: 42
+
+paths:
+  data_path: data/processed/ros2_qa_train.jsonl
+  val_path: data/processed/ros2_qa_val.jsonl
+  output_dir: checkpoints/qlora-ros2

@@ -1,0 +1,13 @@
+# RAG configuration — Phase 3
+embedding:
+  model: BAAI/bge-base-en-v1.5
+  batch_size: 64
+  normalize: true
+
+chunking:
+  max_tokens: 512
+  overlap_tokens: 64
+
+retrieval:
+  top_k: 5
+  score: cosine

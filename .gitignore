@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Data & model artifacts (never commit weights)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+checkpoints/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.engine
+trt_engines/
+
+# Secrets
+.env
+*.key
+hf_token*
+
+# OS
+.DS_Store

@@ -27,3 +27,6 @@ hf_token*
 
 # OS
 .DS_Store
+.vscode/ 
+adapter/ 
+adapter.zip 

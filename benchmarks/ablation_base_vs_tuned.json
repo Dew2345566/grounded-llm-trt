@@ -1,0 +1,26 @@
+{
+  "How do I install colcon on Ubuntu?": {
+    "base": "To install colcon on Ubuntu, you can follow these steps:\n\n1. Update the package list: `sudo apt update`\n2. Install colcon: `sudo apt install colcon`\n3. Verify the installation: `colcon --version`\n\nAlternatively, you can install colcon using pip, which is the recommended method:\n\n1. Install pip: `sudo apt install python3-pip`\n2. Install colcon: `pip3 install colcon`\n3. Verify the installation: `colcon --version`\n\nNote: Make sure you have Python 3.8 or later installed on your system, as colcon requires Python 3.8 or later to run.\n\nAfter installing colcon, you can use it to build and package",
+    "tuned": "You can install colcon by running the following command in your terminal:\n\n```bash\n$ sudo apt install colcon-common-extensions\n```"
+  },
+  "Which colcon flag builds only one specific package?": {
+    "base": "To build only one specific package using colcon, you can use the `--packages-select` flag followed by the name of the package you want to build.\n\nFor example, if you want to build only the `my_package` package, you can use the following command:\n```\ncolcon build --packages-select my_package\n```\nThis will build only the `my_package` package and its dependencies, without building any other packages.\n\nNote that you can also use the `--build-base` flag to specify a specific package and its dependencies to build, like this:\n```\ncolcon build --build-base my_package\n```\nThis will build the `my_package` package and its dependencies, but not any other packages.",
+    "tuned": "You can use the --packages-select flag to build a single package. For example: colcon build --packages-select my_package."
+  },
+  "What are the three parts of a .action file?": {
+    "base": "A .action file in ROS2 is a description of a service or action, which is a way to define a way to interact with a node. The three parts of a .action file are:\n\n1. **Message**: This is the input and output data type for the action. It defines the structure of the data that is sent and received by the action.\n2. **Action**: This is the definition of the action itself. It specifies the name of the action, the message type, and the goal status (i.e., whether the action is pending, running, or done).\n3. **Server**: This is the definition of the action server. It specifies the name of the server, the message type, and the goal status. The",
+    "tuned": "The three parts of a .action file are the goal, the result, and the feedback."
+  },
+  "How do I install colcon on RHEL?": {
+    "base": "To install colcon on RHEL (Red Hat Enterprise Linux), you can follow these steps:\n\n1. **Update the package list**: Run the following command to update the package list:\n```\nsudo dnf update -y\n```\n2. **Install the required dependencies**: Colcon requires Python 3.8 or higher, pip, and the `dnf` package manager. Install these dependencies using the following command:\n```\nsudo dnf install -y python38 pip dnf\n```\n3. **Install colcon**: Use pip to install colcon:\n```\nsudo pip3 install colcon\n```\n4. **Verify the installation**: Run the following command to verify that colcon is installed correctly:\n```\ncol",
+    "tuned": "You can install colcon by running the following command in your terminal:\n\n```bash\n$ sudo dnf install colcon-common-extensions\n```"
+  },
+  "What does the --symlink-install flag do in colcon?": {
+    "base": "The `--symlink-install` flag in colcon (CMake-based build and package management system for ROS2) is used to control how packages are installed.\n\nWhen `--symlink-install` is set to `True` (which is the default), colcon creates symbolic links to the installed packages in the `install` directory. This means that the actual package files are not copied to the `install` directory, but instead, a symbolic link is created that points to the original package location.\n\nThis approach has several benefits:\n\n1. **Faster installation**: Since symbolic links are created, the installation process is faster, as colcon doesn't need to copy the entire package contents.\n2. **Less disk space usage**: By not copying",
+    "tuned": "It allows colcon to create symbolic links to the installed packages."
+  },
+  "How do I create a ROS2 workspace?": {
+    "base": "To create a ROS2 workspace, you can follow these steps:\n\n1. **Install ROS2**: First, make sure you have ROS2 installed on your system. You can download and install it from the official ROS2 website: <https://docs.ros.org/en/ros2/Tutorials/Install-ROS2.html>\n\n2. **Create a new directory**: Create a new directory where you want to create your ROS2 workspace. For example, you can create a directory named \"my_ros2_workspace\" in your home directory.\n\n3. **Initialize the workspace**: Navigate to the directory you just created and run the following command to initialize the workspace:\n   ```\n   ros2 init\n   ```\n\n   This command will create the necessary directories and",
+    "tuned": "You can create a workspace by running the following command in your terminal:\n\n```bash\n$ mkdir ~/ros2_ws\n```"
+  }
+}

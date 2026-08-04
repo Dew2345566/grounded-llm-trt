@@ -25,3 +25,16 @@ Sizes: median 507 chars, p95 2,480, max 29,769.
 Friction: most of the session went to Windows path/download issues,
 not the code. Fix: get git push working.
 Next: chunking — split 363 oversized sections, merge tiny ones.
+
+## Session 9 — Base vs fine-tuned comparison
+Bug: transformers 5.x apply_chat_template breaks generate() too (BatchEncoding,
+not tensor). Same root cause as the dataset bug.
+Base, 6 ROS2 questions, greedy: 1/6 correct. Fabricated `ros2 init`,
+`apt install colcon`, .action = Message/Action/Server, wrong --symlink-install
+default, invented --build-base purpose.
+Fine-tuned (best/, val 1.4835): 2/6 fully correct, 3 improved.
+  .action → "goal, result, feedback" ✓
+  Style transfer strong: 1-3 sentences + fenced command (training median 131 chars).
+KEY FINDING: tuned says `colcon-common-extensions`, real is
+`python3-colcon-common-extensions`. Learned the SHAPE, not the exact string.
+→ This is the argument for RAG, demonstrated rather than asserted.

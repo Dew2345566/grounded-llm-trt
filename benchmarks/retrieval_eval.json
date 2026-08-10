@@ -1,0 +1,16 @@
+{
+  "n_questions": 2163,
+  "n_chunks": 5893,
+  "model": "BAAI/bge-base-en-v1.5",
+  "orphan_questions": 0,
+  "metrics": {
+    "hit@1": 0.45815996301433193,
+    "hit@3": 0.6564956079519186,
+    "hit@5": 0.7281553398058253,
+    "hit@10": 0.8118354137771614,
+    "mrr": 0.5733565594522607,
+    "found_frac": 0.8118354137771614,
+    "median_rank_when_found": 1.0,
+    "overlap_gap": 0.1544332741967277
+  }
+}

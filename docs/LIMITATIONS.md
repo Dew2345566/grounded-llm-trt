@@ -16,3 +16,26 @@ FINDING: hit@5 is a LOWER BOUND. Single gold labels penalise correct retrieval
   correct chunks (0.82/0.78/0.77), scored as a miss because gold was the tf2
   tutorial. → LIMITATIONS.md + future work: multi-label ground truth.
 Next: pipeline.py (retrieval → prompt → generate), then 3-way ablation.
+
+## Session 12 — pipeline.py + Mac reproduction
+Reproduced the full pipeline on macOS (M-series, MPS).
+  MPS embedding: 224s vs 855s on Windows CPU — 3.8x faster.
+
+FINDING 1 — corpus not pinned:
+  Windows clone (2026-07-28): 334 files, 4,707 sections, 5,893 chunks
+  Mac clone (2026-08-xx):     336 files, 4,758 sections, 5,950 chunks
+  ros2_documentation moves; --depth 1 always fetches HEAD, so README numbers
+  are not reproducible from the quickstart. Fix: pin a commit SHA.
+
+FINDING 2 — tokenizer gap confirmed independently:
+  chars/4 estimate -> 5,167 chunks; real tokenizer -> 5,950 (+15%).
+  Second machine, same direction as the +44% token error measured in Phase 1.
+
+Env lesson: conda + pip both installing torch broke the C++ linkage
+  (Symbol not found: __ZN2at17toDLPackVersioned...). Never mix them for torch.
+  Also had three Pythons; `pip` and `python` resolved differently.
+  Use `python -m pip`, always.
+
+pipeline.py written: three modes (base/tuned/rag), one model with
+  disable_adapter() toggling, greedy decoding, context in USER turn.
+  Untested — needs CUDA. Next session on Windows.
